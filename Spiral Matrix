@@ -1,0 +1,53 @@
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> result;
+        
+        int startRow = 0;
+        int startCol = 0;
+        int endRow = matrix.size() - 1;
+        int endCol = matrix[0].size() - 1;
+
+        while (startRow <= endRow && startCol <= endCol) {
+            
+            // Top row: left  se  right jaane vale 
+
+
+            for (int j = startCol; j <= endCol; j++) {
+                result.push_back(matrix[startRow][j]);
+            }
+
+            // Right column: top se  bottom jaane vala 
+
+            
+            for (int i = startRow + 1; i <= endRow; i++) {
+                result.push_back(matrix[i][endCol]);
+            }
+
+            // Bottom row: right
+
+
+            if (startRow < endRow) {
+                for (int j = endCol - 1; j >= startCol; j--) {
+                    result.push_back(matrix[endRow][j]);
+                }
+            }
+
+            // Left column: bottom  se top 
+
+
+            if (startCol < endCol) {
+                for (int i = endRow - 1; i > startRow; i--) {
+                    result.push_back(matrix[i][startCol]);
+                }
+            }
+    /// ab boundries ko hatne hae bas inmae 
+            startRow++;
+            startCol++;
+            endRow--;
+            endCol--;
+        }
+
+        return result;
+    }
+};
