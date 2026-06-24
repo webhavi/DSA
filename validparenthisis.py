@@ -7,7 +7,7 @@ class Solution:
               ')':'(',
               '}':'{',
               ']':'['
-       } 
+       }
        for c in s :
            if c in closeToopen :
                if stack and stack[-1] == closeToopen[c] :
@@ -15,5 +15,5 @@ class Solution:
                else:
                    return False
            else:
-               stack.appened(c)
-               return not stack
+               stack.append(c)
+       return not stack
