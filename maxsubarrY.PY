@@ -9,4 +9,5 @@ class Solution:
                 currsum = 0
             currsum = currsum + n
             maxsum = max(maxsum, currsum)
+
         return maxsum
